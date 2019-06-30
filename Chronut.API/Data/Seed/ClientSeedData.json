@@ -1,0 +1,68 @@
+[
+    {
+        "AccountId": 1,
+        "FullName": "Jahnel Group",
+        "ShortName": "JG",
+        "IconImage": null,
+        "IsEnabled": true,
+        "CreatedDatetime": "2019-01-01 00:00:0",
+        "CreatedByUserId": 1,
+        "LastEditedDatetime": "2019-01-01 00:00:0",
+        "LastEditedByUserId": 1
+    },
+    {
+        "AccountId": 1,
+        "FullName": "Kelmar Associates",
+        "ShortName": "Kelmar",
+        "IconImage": null,
+        "IsEnabled": true,
+        "CreatedDatetime": "2019-01-01 00:00:0",
+        "CreatedByUserId": 1,
+        "LastEditedDatetime": "2019-01-01 00:00:0",
+        "LastEditedByUserId": 1
+    },
+    {
+        "AccountId": 1,
+        "FullName": "Mid-Hudson Insurance Cooperative",
+        "ShortName": "MHC",
+        "IconImage": null,
+        "IsEnabled": true,
+        "CreatedDatetime": "2019-01-01 00:00:0",
+        "CreatedByUserId": 1,
+        "LastEditedDatetime": "2019-01-01 00:00:0",
+        "LastEditedByUserId": 1
+    },
+    {
+        "AccountId": 1,
+        "FullName": "Benetech",
+        "ShortName": "Benetech",
+        "IconImage": null,
+        "IsEnabled": true,
+        "CreatedDatetime": "2019-01-01 00:00:0",
+        "CreatedByUserId": 1,
+        "LastEditedDatetime": "2019-01-01 00:00:0",
+        "LastEditedByUserId": 1
+    },
+    {
+        "AccountId": 1,
+        "FullName": "SHAW Software",
+        "ShortName": "SHAW",
+        "IconImage": null,
+        "IsEnabled": true,
+        "CreatedDatetime": "2019-01-01 00:00:0",
+        "CreatedByUserId": 1,
+        "LastEditedDatetime": "2019-01-01 00:00:0",
+        "LastEditedByUserId": 1
+    },
+    {
+        "AccountId": 1,
+        "FullName": "Levy Gorvy",
+        "ShortName": "Levy Gorvy",
+        "IconImage": null,
+        "IsEnabled": true,
+        "CreatedDatetime": "2019-01-01 00:00:0",
+        "CreatedByUserId": 1,
+        "LastEditedDatetime": "2019-01-01 00:00:0",
+        "LastEditedByUserId": 1
+    }
+]

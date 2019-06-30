@@ -168,5 +168,50 @@ namespace Chronut.API.Data
 
             return messages;
         }
+
+        public async Task<PagedList<Client>> GetClients(ClientParams clientParams)
+        {
+            var clients =  _context.Clients
+                .OrderBy(c => c.FullName).AsQueryable();
+
+            if (clientParams.AccountId != null)
+            {
+                clients = clients.Where(c => c.AccountId == clientParams.AccountId);
+            }
+
+            if (clientParams.FullName != null)
+            {
+                clients = clients.Where(c => c.FullName.Contains(clientParams.FullName));
+            }
+
+            if (clientParams.IsEnabled != null)
+            {
+                clients = clients.Where(c => c.IsEnabled == clientParams.IsEnabled);
+            }
+
+            if (!string.IsNullOrEmpty(clientParams.OrderBy))
+            {
+                switch (clientParams.OrderBy)
+                {
+                    case "accountId":
+                        clients = clients.OrderByDescending(c => c.AccountId);
+                        break;
+                    case "fullName":
+                        clients = clients.OrderByDescending(c => c.FullName);
+                        break;
+                    case "shortName":
+                        clients = clients.OrderByDescending(c => c.ShortName);
+                        break;
+                    case "isEnabled":
+                        clients = clients.OrderByDescending(c => c.IsEnabled);
+                        break;
+                    default:
+                        clients = clients.OrderByDescending(c => c.Id);
+                        break;
+                }
+            }
+
+            return await PagedList<Client>.CreateAsync(clients, clientParams.PageNumber, clientParams.PageSize);
+        }
     }
 }

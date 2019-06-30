@@ -153,7 +153,13 @@ namespace Chronut.API
             }
 
             // app.UseHttpsRedirection();
+            // seeder.SeedAccounts();
             // seeder.SeedUsers();
+            // seeder.SeedClients();
+            // seeder.SeedProjects();
+            // seeder.SeedProjectUsers(); TODO: not working
+            // seeder.SeedTimeEntries();
+            // seeder.SeedCalendar();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();
             app.UseDefaultFiles();  // for publishing

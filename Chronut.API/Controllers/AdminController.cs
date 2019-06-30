@@ -32,7 +32,7 @@ namespace Chronut.API.Controllers
             _cloudinaryConfig = cloudinaryConfig;
             _context = context;
 
-            Account acc = new Account(
+            CloudinaryDotNet.Account acc = new CloudinaryDotNet.Account(
                 _cloudinaryConfig.Value.CloudName,
                 _cloudinaryConfig.Value.ApiKey,
                 _cloudinaryConfig.Value.ApiSecret

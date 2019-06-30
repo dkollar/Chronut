@@ -22,5 +22,21 @@ namespace Chronut.API.Models
         public ICollection<Message> MessagesSent { get; set; }
         public ICollection<Message> MessagesReceived { get; set; }
         public ICollection<UserRole> UserRoles { get; set; }
+        public int AccountId { get; set; }
+        public Account Account { get; set; }
+        public ICollection<ProjectUser> Projects { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Employer { get; set; }
+        public string HowPaid { get; set; }
+        public int SalaryHoursPerWeek { get; set; }
+        public int ContractorCostRate { get; set; }
+        public bool IsEnabled { get; set; }
+        public DateTime CreatedDatetime { get; set; }
+        public int? CreatedByUserId { get; set; }
+        public User CreatedByUser { get; set; }
+        public DateTime LastEditedDatetime { get; set; }
+        public int? LastEditedByUserId { get; set; }
+        public User LastEditedByUser { get; set; }
     }
 }

@@ -30,7 +30,7 @@ namespace Chronut.API.Controllers
             _mapper = mapper;
             _repo = repo;
 
-            Account acc = new Account(
+            CloudinaryDotNet.Account acc = new CloudinaryDotNet.Account(
                 _cloudinaryConfig.Value.CloudName,
                 _cloudinaryConfig.Value.ApiKey,
                 _cloudinaryConfig.Value.ApiSecret

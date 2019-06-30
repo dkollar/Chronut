@@ -7,9 +7,14 @@
             <app-user-management></app-user-management>
         </div>
       </tab>
+      <tab heading="Client Management" *appHasRole="['Admin']">
+        <div class="container">
+          <app-client-management></app-client-management>
+        </div>
+      </tab>
       <tab heading="Photo Management" *appHasRole="['Admin', 'Moderator']">
-          <app-photo-management></app-photo-management>
-        </tab>
+        <app-photo-management></app-photo-management>
+      </tab>
     </tabset>
   </div>
 </div>

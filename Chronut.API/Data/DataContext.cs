@@ -15,6 +15,12 @@ namespace Chronut.API.Data
         public DbSet<Photo> Photos { get; set; }
         public DbSet<Like> Likes { get; set; }
         public DbSet<Message> Messages { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<ProjectUser> ProjectUsers { get; set; }
+        public DbSet<TimeEntry> TimeEntries { get; set; }
+        public DbSet<Calendar> Calendars { get; set; }
         
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -61,6 +67,21 @@ namespace Chronut.API.Data
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<Photo>().HasQueryFilter(p => p.IsApproved);
+
+            builder.Entity<ProjectUser>(projectUser =>
+            {
+                projectUser.HasKey(pu => new {pu.UserId, pu.ProjectId});
+                
+                projectUser.HasOne(pu => pu.Project)
+                    .WithMany(r => r.Users)
+                    .HasForeignKey(pu => pu.ProjectId)
+                    .IsRequired();
+
+                projectUser.HasOne(pu => pu.User)
+                    .WithMany(r => r.Projects)
+                    .HasForeignKey(pu => pu.UserId)
+                    .IsRequired();
+            });
         }
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Chronut.API.Migrations
+namespace DatingApp.API.Migrations
 {
     [DbContext(typeof(DataContext))]
     partial class DataContextModelSnapshot : ModelSnapshot
@@ -15,6 +15,106 @@ namespace Chronut.API.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
+
+            modelBuilder.Entity("Chronut.API.Models.Account", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AccountName");
+
+                    b.Property<bool>("IsEnabled");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Accounts");
+                });
+
+            modelBuilder.Entity("Chronut.API.Models.Calendar", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("CalendarDate");
+
+                    b.Property<string>("CalendarDateString");
+
+                    b.Property<byte>("CalendarDay");
+
+                    b.Property<byte>("CalendarMonth");
+
+                    b.Property<byte>("CalendarQtr");
+
+                    b.Property<short>("CalendarYear");
+
+                    b.Property<string>("DayName");
+
+                    b.Property<byte>("DayOfWeek");
+
+                    b.Property<byte>("DayOfWeekInMonth");
+
+                    b.Property<short?>("ExpectedHours");
+
+                    b.Property<DateTime>("FirstDateOfWeek");
+
+                    b.Property<string>("HolidayDesc");
+
+                    b.Property<bool>("IsBusinessDat");
+
+                    b.Property<bool>("IsEndsMidWeek");
+
+                    b.Property<bool>("IsHoliday");
+
+                    b.Property<bool>("IsLastDayOfMonth");
+
+                    b.Property<bool>("IsLeapYear");
+
+                    b.Property<bool>("IsPayDay");
+
+                    b.Property<bool>("IsWeekday");
+
+                    b.Property<DateTime>("LastDateOfWeek");
+
+                    b.Property<string>("MonthName");
+
+                    b.Property<byte>("WeekOfYear");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Calendars");
+                });
+
+            modelBuilder.Entity("Chronut.API.Models.Client", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("AccountId");
+
+                    b.Property<int>("CreatedByUserId");
+
+                    b.Property<DateTime>("CreatedDatetime");
+
+                    b.Property<string>("FullName");
+
+                    b.Property<byte[]>("IconImage");
+
+                    b.Property<bool>("IsEnabled");
+
+                    b.Property<int>("LastEditedByUserId");
+
+                    b.Property<DateTime>("LastEditedDatetime");
+
+                    b.Property<string>("ShortName");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedByUserId");
+
+                    b.HasIndex("LastEditedByUserId");
+
+                    b.ToTable("Clients");
+                });
 
             modelBuilder.Entity("Chronut.API.Models.Like", b =>
                 {
@@ -85,6 +185,71 @@ namespace Chronut.API.Migrations
                     b.ToTable("Photos");
                 });
 
+            modelBuilder.Entity("Chronut.API.Models.Project", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("AccountId");
+
+                    b.Property<string>("BillingType");
+
+                    b.Property<int>("ClientId");
+
+                    b.Property<int>("CreatedByUserId");
+
+                    b.Property<DateTime>("CreatedDatetime");
+
+                    b.Property<DateTime?>("EstimatedCompleteDate");
+
+                    b.Property<int>("EstimatedHours");
+
+                    b.Property<int?>("FixedPrice");
+
+                    b.Property<byte[]>("IconImage");
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<bool>("IsBillable");
+
+                    b.Property<bool>("IsEnabled");
+
+                    b.Property<bool>("IsPartialHoursAllowed");
+
+                    b.Property<int>("LastEditedByUserId");
+
+                    b.Property<DateTime>("LastEditedDatetime");
+
+                    b.Property<string>("ProjectFullName");
+
+                    b.Property<string>("ProjectShortName");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
+
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("CreatedByUserId");
+
+                    b.HasIndex("LastEditedByUserId");
+
+                    b.ToTable("Projects");
+                });
+
+            modelBuilder.Entity("Chronut.API.Models.ProjectUser", b =>
+                {
+                    b.Property<int>("UserId");
+
+                    b.Property<int>("ProjectId");
+
+                    b.HasKey("UserId", "ProjectId");
+
+                    b.HasIndex("ProjectId");
+
+                    b.ToTable("ProjectUsers");
+                });
+
             modelBuilder.Entity("Chronut.API.Models.Role", b =>
                 {
                     b.Property<int>("Id")
@@ -108,6 +273,58 @@ namespace Chronut.API.Migrations
                     b.ToTable("AspNetRoles");
                 });
 
+            modelBuilder.Entity("Chronut.API.Models.TimeEntry", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("AccountId");
+
+                    b.Property<int>("ClientId");
+
+                    b.Property<int>("CreatedByUserId");
+
+                    b.Property<DateTime>("CreatedDatetime");
+
+                    b.Property<DateTime>("EntryDate");
+
+                    b.Property<string>("EntryNotes");
+
+                    b.Property<double>("Hours");
+
+                    b.Property<bool>("IsBillable");
+
+                    b.Property<bool>("IsEnabled");
+
+                    b.Property<bool>("IsLateEntry");
+
+                    b.Property<bool>("IsLocked");
+
+                    b.Property<int>("LastEditedByUserId");
+
+                    b.Property<DateTime>("LastEditedDatetime");
+
+                    b.Property<int>("ProjectId");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
+
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("CreatedByUserId");
+
+                    b.HasIndex("LastEditedByUserId");
+
+                    b.HasIndex("ProjectId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("TimeEntries");
+                });
+
             modelBuilder.Entity("Chronut.API.Models.User", b =>
                 {
                     b.Property<int>("Id")
@@ -115,14 +332,22 @@ namespace Chronut.API.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
+                    b.Property<int>("AccountId");
+
                     b.Property<string>("City");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
+                    b.Property<int>("ContractorCostRate");
+
                     b.Property<string>("Country");
 
                     b.Property<DateTime>("Created");
+
+                    b.Property<int?>("CreatedByUserId");
+
+                    b.Property<DateTime>("CreatedDatetime");
 
                     b.Property<DateTime>("DateOfBirth");
 
@@ -131,15 +356,29 @@ namespace Chronut.API.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
+                    b.Property<string>("Employer");
+
+                    b.Property<string>("FirstName");
+
                     b.Property<string>("Gender");
+
+                    b.Property<string>("HowPaid");
 
                     b.Property<string>("Interests");
 
                     b.Property<string>("Introduction");
 
+                    b.Property<bool>("IsEnabled");
+
                     b.Property<string>("KnownAs");
 
                     b.Property<DateTime>("LastActive");
+
+                    b.Property<int?>("LastEditedByUserId");
+
+                    b.Property<DateTime>("LastEditedDatetime");
+
+                    b.Property<string>("LastName");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -159,6 +398,8 @@ namespace Chronut.API.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed");
 
+                    b.Property<int>("SalaryHoursPerWeek");
+
                     b.Property<string>("SecurityStamp");
 
                     b.Property<bool>("TwoFactorEnabled");
@@ -167,6 +408,11 @@ namespace Chronut.API.Migrations
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
+
+                    b.HasIndex("CreatedByUserId")
+                        .IsUnique();
 
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
@@ -271,6 +517,19 @@ namespace Chronut.API.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Chronut.API.Models.Client", b =>
+                {
+                    b.HasOne("Chronut.API.Models.User", "CreatedByUser")
+                        .WithMany()
+                        .HasForeignKey("CreatedByUserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Chronut.API.Models.User", "LastEditedByUser")
+                        .WithMany()
+                        .HasForeignKey("LastEditedByUserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("Chronut.API.Models.Like", b =>
                 {
                     b.HasOne("Chronut.API.Models.User", "Likee")
@@ -303,6 +562,87 @@ namespace Chronut.API.Migrations
                         .WithMany("Photos")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Chronut.API.Models.Project", b =>
+                {
+                    b.HasOne("Chronut.API.Models.Account", "Account")
+                        .WithMany()
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Chronut.API.Models.Client", "Client")
+                        .WithMany()
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Chronut.API.Models.User", "CreatedByUser")
+                        .WithMany()
+                        .HasForeignKey("CreatedByUserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Chronut.API.Models.User", "LastEditedByUser")
+                        .WithMany()
+                        .HasForeignKey("LastEditedByUserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Chronut.API.Models.ProjectUser", b =>
+                {
+                    b.HasOne("Chronut.API.Models.Project", "Project")
+                        .WithMany("Users")
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Chronut.API.Models.User", "User")
+                        .WithMany("Projects")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Chronut.API.Models.TimeEntry", b =>
+                {
+                    b.HasOne("Chronut.API.Models.Account", "Account")
+                        .WithMany()
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Chronut.API.Models.Client", "Client")
+                        .WithMany()
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Chronut.API.Models.User", "CreatedByUser")
+                        .WithMany()
+                        .HasForeignKey("CreatedByUserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Chronut.API.Models.User", "LastEditedByUser")
+                        .WithMany()
+                        .HasForeignKey("LastEditedByUserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Chronut.API.Models.Project", "Project")
+                        .WithMany()
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Chronut.API.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Chronut.API.Models.User", b =>
+                {
+                    b.HasOne("Chronut.API.Models.Account", "Account")
+                        .WithMany()
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Chronut.API.Models.User", "CreatedByUser")
+                        .WithOne("LastEditedByUser")
+                        .HasForeignKey("Chronut.API.Models.User", "CreatedByUserId");
                 });
 
             modelBuilder.Entity("Chronut.API.Models.UserRole", b =>

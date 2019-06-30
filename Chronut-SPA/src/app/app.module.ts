@@ -39,6 +39,8 @@ import { PhotoManagementComponent } from './admin/photo-management/photo-managem
 import { UserManagementComponent } from './admin/user-management/user-management.component';
 import { AdminService } from './_services/admin.service';
 import { RolesModalComponent } from './admin/roles-modal/roles-modal.component';
+import { ClientManagementComponent } from './admin/client-management/client-management.component';
+import { ClientsResolver } from './_resolvers/clients.resolver';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -63,7 +65,8 @@ export function tokenGetter() {
       HasRoleDirective,
       UserManagementComponent,
       PhotoManagementComponent,
-      RolesModalComponent
+      RolesModalComponent,
+      ClientManagementComponent
    ],
    imports: [
       BrowserModule,
@@ -99,7 +102,8 @@ export function tokenGetter() {
       PreventUnsavedChanges,
       ListsResolver,
       MessagesResolver,
-      AdminService
+      AdminService,
+      ClientsResolver
    ],
    entryComponents: [
       RolesModalComponent
