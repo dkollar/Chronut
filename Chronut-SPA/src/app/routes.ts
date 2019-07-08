@@ -1,21 +1,21 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { MemberListComponent } from './members/member-list/member-list.component';
+import { MemberListComponent } from './layout/members/member-list/member-list.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ListsComponent } from './lists/lists.component';
 import { AuthGuard } from './_guards/auth.guard';
-import { MemberDetailComponent } from './members/member-detail/member-detail.component';
+import { MemberDetailComponent } from './layout/members/member-detail/member-detail.component';
 import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { MemberListResolver } from './_resolvers/member-list.resolver';
-import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { MemberEditComponent } from './layout/members/member-edit/member-edit.component';
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { ListsResolver } from './_resolvers/lists.resolver';
 import { MessagesResolver } from './_resolvers/messages.resolver';
-import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { AdminPanelComponent } from './layout/admin/admin-panel/admin-panel.component';
 
 export const appRoutes: Routes = [
-    { path: '', component: HomeComponent },
+    { path: '', component: MemberListComponent },
     {
         path: '',
         runGuardsAndResolvers: 'always',

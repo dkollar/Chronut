@@ -56,7 +56,11 @@ export class UserManagementComponent implements OnInit {
       {name: 'Admin', value: 'Admin'},
       {name: 'Moderator', value: 'Moderator'},
       {name: 'Member', value: 'Member'},
-      {name: 'VIP', value: 'VIP'}
+      {name: 'VIP', value: 'VIP'},
+      {name: 'Executive', value: 'Executive'},
+      {name: 'Project Leader', value: 'Project Leader'},
+      {name: 'JG Employee', value: 'JG Employee'},
+      {name: 'Sub-Contractor', value: 'Sub-Contractor'}
     ];
 
     for (let i = 0; i < availableRoles.length; i++) {

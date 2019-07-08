@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Client } from '../../_models/client';
-import { Pagination, PaginatedResult } from '../../_models/pagination';
-import { ClientService } from '../../_services/client.service';
+import { Client } from '../../../_models/client';
+import { Pagination, PaginatedResult } from '../../../_models/pagination';
+import { ClientService } from '../../../_services/client.service';
 import { ActivatedRoute } from '@angular/router';
-import { AlertifyService } from '../../_services/alertify.service';
+import { AlertifyService } from '../../../_services/alertify.service';
 
 @Component({
   selector: 'app-client-management',
@@ -41,6 +41,10 @@ export class ClientManagementComponent implements OnInit {
   pageChanged(event: any): void {
     this.pagination.currentPage = event.page;
     this.loadClients();
+  }
+
+  editClientModal(client: Client) {
+    this.alertify.error("Feature not yet available!");
   }
 
 }

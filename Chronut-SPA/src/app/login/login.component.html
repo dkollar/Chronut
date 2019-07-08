@@ -1,0 +1,21 @@
+<section id="login-container" class="text-center">
+  <form #loginForm="ngForm" class="form-signin my-2 my-lg-0" (ngSubmit)="login()">
+    <img class="mb-4" src="../../../assets/chronut.svg" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <label for="username" class="sr-only">Username</label>
+    <input class="form-control" type="text" id="username" name="username"
+        placeholder="Username" [(ngModel)]="model.username"
+        required autofocus>
+    <label for="password" class="sr-only">Password</label>
+    <input class="form-control" type="password" id="password" name="password"
+        placeholder="Password" required [(ngModel)]="model.password">
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me">Remember me
+      </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+    <button class="btn btn-lg btn-info btn-block" type="button" [routerLink]="['/register']">Register</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
+  </form>
+</section>
