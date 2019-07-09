@@ -1,21 +1,57 @@
-<nav class="col-md-2 d-none d-md-block bg-light sidebar">
-  <div class="sidebar-sticky">
-    <ul class="nav flex-column">
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/sandbox']">Sandbox</a>
-      </li>
-      <!-- <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/members']">Matches</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/lists']">Lists</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/messages']">Messages</a>
-      </li> -->
-      <li *appHasRole="['Admin', 'Moderator']" class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/admin']">Admin</a>
-      </li>
-    </ul>
+<nav id="sidebar" class="navbar-dark bg-primary" [ngClass]="{active: !collapsedSidebar}">
+  <div class="sidebar-header mb-4">
+      <h3>Chronut</h3>
+      <a [routerLink]="['/sandbox']">
+        <img src="../../../assets/chronut.svg" alt="" class="mt-3">
+      </a>
   </div>
+
+  <div class="flex-column dropdown mb-3" dropdown>
+    <a dropdownToggle>
+      <span class="mr-1">
+        <img src="{{photoUrl || '../../../assets/user.png'}}" alt="" class="avatar">
+        <!-- {{authService.decodedToken?.unique_name | titlecase}} -->
+      </span>
+    </a>
+    <div class="dropdown-menu mt-3" *dropdownMenu>
+      <a class="dropdown-item" [routerLink]="['/member/edit']">
+        <i class="fas fa-user"></i>Edit Profile</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i>Logout</a>
+    </div>
+  </div>
+
+  <ul class="nav navbar-nav flex-column">
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/sandbox']">
+        <i class="fas fa-umbrella-beach"></i>
+        Sandbox
+      </a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/members']">
+        <i class="fas fa-user-clock"></i>
+        Matches
+      </a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/lists']">
+        <i class="fas fa-chart-line"></i>
+        Lists
+      </a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/messages']">
+        <i class="far fa-file-alt"></i>
+        Messages
+      </a>
+    </li>
+    <li *appHasRole="['Admin', 'Moderator']" class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/admin']">
+        <i class="fas fa-users-cog"></i>
+        Admin
+      </a>
+    </li>
+  </ul>
 </nav>

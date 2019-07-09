@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './layout.component';
 import { LayoutRoutingModule } from './layout-routing.module';
-import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DirectivesModule } from '../_directives/directives.module';
 import { BsDropdownModule } from 'ngx-bootstrap';
@@ -16,8 +15,7 @@ import { BsDropdownModule } from 'ngx-bootstrap';
   ],
   declarations: [
     LayoutComponent,
-    SidebarComponent,
-    HeaderComponent
+    SidebarComponent
   ]
 })
 export class LayoutModule {}
