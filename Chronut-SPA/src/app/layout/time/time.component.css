@@ -1,0 +1,7 @@
+#time-management-heading button {
+    width: 150px;
+}
+
+#time-management-heading button.active {
+    background-color: var(--success);
+}

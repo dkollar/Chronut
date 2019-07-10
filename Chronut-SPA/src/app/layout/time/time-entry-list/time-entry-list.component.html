@@ -1,0 +1,7 @@
+<div class="row">
+  <h5 class="inline-block">Wednesday, May 15, 2019</h5>
+</div>
+
+<div class="row mb-1" *ngFor="let entry of timeEntries">
+  <app-time-entry-card class="col-md-12" [entry]="entry"></app-time-entry-card>
+</div>

@@ -1,0 +1,20 @@
+.calendar {
+    border: 1px solid black;
+}
+
+.calendar table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.calendar td {
+    border: 1px solid black;
+}
+
+.calendar th {
+    text-align: center;
+}
+
+.calendar th, .calendar td {
+    width: calc(100% / 8);
+}

@@ -1,0 +1,12 @@
+<div id="time-management-heading" class="mt-2 border-bottom border-primary mb-5">
+  <h3 class="text-primary d-inline-block">Time Management</h3>
+  <div class="d-inline-block float-right">
+    <button class="btn btn-primary mr-1"
+        [routerLink]="['/time/today']" routerLinkActive="active">TODAY</button>
+    <button class="btn btn-primary mr-1"
+        [routerLink]="['/time/thismonth']" routerLinkActive="active">THIS MONTH</button>
+    <button class="btn btn-primary"
+        [routerLink]="['/time/thisyear']" routerLinkActive="active">THIS YEAR</button>
+  </div>
+</div>
+<router-outlet></router-outlet>
